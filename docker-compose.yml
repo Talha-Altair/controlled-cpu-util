@@ -4,7 +4,6 @@ services:
 
   app:
       build: .
-      command: python app.py
       volumes:
         - .:/app
       ports:
