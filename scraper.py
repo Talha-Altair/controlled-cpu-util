@@ -180,7 +180,7 @@ def get_data():
 
         data.append(current_dict)
 
-    final_data = { "data" : data , "time" : datetime.now() }
+    final_data = { "data" : data , "time" : str(datetime.now()) }
 
     print(final_data)
 
