@@ -2,6 +2,7 @@ from multiprocessing import Pool
 from multiprocessing import cpu_count
 import signal
 import datetime
+from time import sleep
 
 stop_loop = 0
 
@@ -23,8 +24,6 @@ signal.signal(signal.SIGINT, exit_chld)
 
 def stress():
 
-    current_time = datetime.datetime.utcnow()
-
     processes = cpu_count()
     print('-' * 20)
     print('Running load on CPU(s)')
@@ -32,6 +31,12 @@ def stress():
     print('-' * 20)
     pool = Pool(processes)
     pool.map(f, range(processes))
+
+    sleep(10)
+
+    pool.terminate()
+
+    pool.join()
 
 if __name__ == '__main__':
 
