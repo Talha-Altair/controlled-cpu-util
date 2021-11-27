@@ -7,3 +7,4 @@ python-dotenv
 dnspython
 celery
 redis
+lxml

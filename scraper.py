@@ -9,7 +9,6 @@ Source:
 # Import necessary modules
 from bs4 import BeautifulSoup
 import requests
-import json
 from pymongo import MongoClient
 from dotenv import load_dotenv
 import os
@@ -182,6 +181,8 @@ def get_data():
         data.append(current_dict)
 
     final_data = { "data" : data , "time" : datetime.now() }
+
+    print(final_data)
 
     insert_records(final_data)
 
