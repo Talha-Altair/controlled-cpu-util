@@ -1,42 +1,12 @@
-from multiprocessing import Pool
-from multiprocessing import cpu_count
-import signal
-import datetime
-from time import sleep
-
-stop_loop = 0
-
-def exit_chld(x, y):
-
-    global stop_loop
-
-    stop_loop = 1
-
-def f(x):
-
-    global stop_loop
-
-    while not stop_loop:
-
-        x*x
-
-signal.signal(signal.SIGINT, exit_chld)
+import os
 
 def stress():
 
-    processes = cpu_count()
-    print('-' * 20)
-    print('Running load on CPU(s)')
-    print('Utilizing %d cores' % processes)
-    print('-' * 20)
-    pool = Pool(processes)
-    pool.map(f, range(processes))
+    cmd = "stress --cpu 1 --timeout 10s"
 
-    sleep(3)
+    os.system(cmd)
 
-    pool.terminate()
-
-    pool.join()
+    return 0
 
 if __name__ == '__main__':
 
