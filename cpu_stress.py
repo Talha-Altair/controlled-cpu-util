@@ -1,8 +1,37 @@
-from cpu_load_generator import load_all_cores
+from multiprocessing import Pool
+from multiprocessing import cpu_count
+import signal
+import datetime
 
-def stress(duration = 420, load = 10):
+stop_loop = 0
 
-    load_all_cores(duration_s = duration, target_load = load)
+def exit_chld(x, y):
+
+    global stop_loop
+
+    stop_loop = 1
+
+def f(x):
+
+    global stop_loop
+
+    while not stop_loop:
+
+        x*x
+
+signal.signal(signal.SIGINT, exit_chld)
+
+def stress():
+
+    current_time = datetime.datetime.utcnow()
+
+    processes = cpu_count()
+    print('-' * 20)
+    print('Running load on CPU(s)')
+    print('Utilizing %d cores' % processes)
+    print('-' * 20)
+    pool = Pool(processes)
+    pool.map(f, range(processes))
 
 if __name__ == '__main__':
 
