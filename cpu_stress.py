@@ -2,7 +2,9 @@ import os
 
 def stress():
 
-    cmd = "stress --cpu 1 --timeout 10s"
+    time_in_seconds = 420
+
+    cmd = f"stress --cpu 1 --timeout {time_in_seconds}s"
 
     os.system(cmd)
 
