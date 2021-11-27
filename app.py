@@ -3,8 +3,13 @@ from cpu_stress import stress
 
 app = Flask(__name__)
 
-@app.route('/',methods=['GET'])
-def home():
+@app.route('/ping',methods=['GET'])
+def ping():
+
+    return jsonify({"ping":"pong"})
+
+@app.route('/crawl',methods=['GET'])
+def crawl():
 
     return jsonify({"ping":"pong"})
 
