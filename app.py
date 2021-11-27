@@ -1,6 +1,7 @@
 from flask import *
 from cpu_stress import stress
 from scraper import get_data
+import tasks
 
 app = Flask(__name__)
 
@@ -12,11 +13,9 @@ def ping():
 @app.route('/crawl',methods=['GET'])
 def crawl():
 
-    get_data()
+    tasks.crawl.delay()
 
-    stress()
-
-    return jsonify({"ping":"pong"})
+    return jsonify({"Message":"Task Started"})
 
 if __name__ == '__main__':
 

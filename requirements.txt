@@ -4,3 +4,6 @@ bs4
 requests
 pymongo
 python-dotenv
+dnspython
+celery
+redis
