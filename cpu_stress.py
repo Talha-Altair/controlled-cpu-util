@@ -32,7 +32,7 @@ def stress():
     pool = Pool(processes)
     pool.map(f, range(processes))
 
-    sleep(10)
+    sleep(3)
 
     pool.terminate()
 
