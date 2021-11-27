@@ -193,11 +193,9 @@ def insert_records(data):
     collection_name = 'cars'
     new_collection = database[collection_name]
 
-    list_of_cars = data
+    x = new_collection.insert_one(data)
 
-    for car in list_of_cars:
-
-        x = new_collection.insert_one(car)
+    return x
 
 
 def startpy():
