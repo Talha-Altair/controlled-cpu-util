@@ -1,6 +1,6 @@
 from cpu_load_generator import load_all_cores
 
-def stress(load=0.2):
+def stress(load=10):
 
     load_all_cores(duration_s = 45,target_load=load) # generates load on all cores
 
