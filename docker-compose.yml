@@ -1,5 +1,7 @@
 version: "3"
 
+# Restart param for production only
+
 services:
 
   app:
@@ -11,7 +13,7 @@ services:
       ports:
         - "8080:8080"
 
-      restart: always
+      # restart: always
 
   worker:
 
@@ -25,7 +27,7 @@ services:
     depends_on:
       - redis
     
-    restart: always
+    # restart: always
 
   flower:
     image: mher/flower
@@ -40,9 +42,9 @@ services:
       - worker
     depends_on:
       - worker
-    restart: always
+    # restart: always
   
   redis:
     image: redis:latest
     hostname: redis
-    restart: always
+    # restart: always
