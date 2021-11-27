@@ -1,16 +1,11 @@
-# Use the LTS release.
 FROM python:3.9.4-slim-buster
 
-# RUN useradd --user-group --create-home --shell /bin/false app 
+ADD ./requirements.txt /app/requirements
 
-WORKDIR /home/Altair/docker-sample
-
-ADD . .
-
-#ADD app.py .
+WORKDIR /app
 
 RUN pip install -r requirements.txt
 
-CMD ["python3":"app.py"]
+ADD . .
 
-# USER app
+CMD ["python3":"app.py"]

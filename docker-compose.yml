@@ -1,9 +1,11 @@
-docker-sample:
+version: "3"
+
+services:
+
+  app:
       build: .
-       #environment:
-       # WORKER_SMTP_PORT: 265
       command: python app.py
       volumes:
-        - .:/home/Altair/docker-sample
+        - .:/app
       ports:
         - "8080:8080"
