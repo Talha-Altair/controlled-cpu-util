@@ -1,11 +1,13 @@
-from flask import Flask, render_template, request, jsonify
+from flask import *
+from cpu_stress import stress
 
 app = Flask(__name__)
 
-@app.route('/',methods=['GET']) 
+@app.route('/',methods=['GET'])
 def home():
-    return render_template('index.html')
+
+    return jsonify({"ping":"pong"})
 
 if __name__ == '__main__':
-  app.run(host='0.0.0.0', port=8080, debug=True)
 
+	app.run(host='0.0.0.0', port=8080, debug=True)
