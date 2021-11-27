@@ -11,6 +11,8 @@ services:
       ports:
         - "8080:8080"
 
+      restart: always
+
   worker:
 
     build: .
@@ -22,6 +24,8 @@ services:
       - redis
     depends_on:
       - redis
+    
+    restart: always
 
   flower:
     image: mher/flower
@@ -36,7 +40,9 @@ services:
       - worker
     depends_on:
       - worker
+    restart: always
   
   redis:
     image: redis:latest
-    hostname: redis    
+    hostname: redis
+    restart: always
