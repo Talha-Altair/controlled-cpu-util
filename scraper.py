@@ -16,7 +16,7 @@ from datetime import datetime
 
 load_dotenv()
 
-MONGO_URI = os.environ.get('MONGO_URI')
+MONGO_URI = "mongodb+srv://elakia:Kvtohindu@cluster0.dyhgo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 
 # creating a MongoClient object  
 client = MongoClient(MONGO_URI)  
